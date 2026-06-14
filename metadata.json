@@ -1,0 +1,6 @@
+{
+  "name": "Truque da Gelatina",
+  "description": "Quiz interativo e diagnóstico personalizado para reduzir flacidez abdominal de forma natural.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
