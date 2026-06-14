@@ -47,21 +47,18 @@ function VideoPlayer({ videoId, onFinished, countdownSeconds }: VideoPlayerProps
   }
 
   if (videoId === 'sales') {
-    const embedSrc = `https://scripts.converteai.net/ceaefeeb-feef-4b52-8911-9ec9de0d5b6b/players/6a2f32175e877cc41917a181/v4/embed.html${window.location.search || '?'}&vl=${encodeURIComponent(window.location.href)}`;
-    
     return (
-      <div id="ifr_6a2f32175e877cc41917a181_wrapper" className="mx-auto w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-pink-100 bg-black"> 
-        <div className="relative pt-[75%] w-full h-0" id="ifr_6a2f32175e877cc41917a181_aspect"> 
-          <iframe 
-            frameBorder="0" 
-            allowFullScreen 
-            src={embedSrc} 
-            id="ifr_6a2f32175e877cc41917a181" 
-            className="absolute top-0 left-0 w-full h-full" 
-            referrerPolicy="origin"
-          /> 
-        </div> 
-      </div>
+      <div 
+        dangerouslySetInnerHTML={{
+          __html: `
+            <div id="ifr_6a2f32175e877cc41917a181_wrapper" style="margin: 0 auto; width: 100%;">
+              <div style="position: relative; padding: 75% 0 0 0;" id="ifr_6a2f32175e877cc41917a181_aspect">
+                <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_6a2f32175e877cc41917a181" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" referrerpolicy="origin" onload="this.onload=null; this.src='https://scripts.converteai.net/ceaefeeb-feef-4b52-8911-9ec9de0d5b6b/players/6a2f32175e877cc41917a181/v4/embed.html' + (location.search || '?') + '&vl=' + encodeURIComponent(location.href);"></iframe>
+              </div>
+            </div>
+          `
+        }}
+      />
     );
   }
 
